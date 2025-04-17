@@ -1,59 +1,66 @@
-import { useState } from "react";
+"use client";
+
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/image";
 
-interface FormDetails {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  message: string;
-}
+const Banner: React.FC = () => {
+  const [loopNum, setLoopNum] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [text, setText] = useState("");
+  const [delta, setDelta] = useState(100 - Math.random() * 100);
+  const toRotate = useMemo(() => ["Dev Back-End"], []);
+  const period = 1700;
 
-const Contact: React.FC = () => {
-  const [formDetails, setFormDetails] = useState<FormDetails>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-  const [buttonText, setButtonText] = useState("Send");
-  const [status, setStatus] = useState({});
+  const tick = useCallback(() => {
+    const i = loopNum % toRotate.length;
+    const fullText = toRotate[i];
+    const updatedText = isDeleting
+      ? fullText.substring(0, text.length - 1)
+      : fullText.substring(0, text.length + 1);
+    setText(updatedText);
 
-  const onFormUpdate = (category: string, value: string) => {
-    setFormDetails({ ...formDetails, [category]: value });
-  };
+    if (isDeleting) setDelta((prevDelta) => prevDelta / 2);
+    if (!isDeleting && updatedText === fullText) {
+      setIsDeleting(true);
+      setDelta(period);
+    } else if (isDeleting && updatedText === "") {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+      setDelta(200);
+    }
+  }, [loopNum, isDeleting, text, period, toRotate]); 
+
+  useEffect(() => {
+    const ticker = setInterval(() => {
+      tick();
+    }, delta);
+    return () => clearInterval(ticker);
+  }, [delta, tick]); 
 
   return (
-    <section className="contact" id="connect">
+    <section className="banner" id="home">
       <Container>
         <Row className="align-items-center">
-          <Col md={6}>
-            <Image src="/assets/img/contact-img.svg" alt="Contact Us" width={500} height={500} />
+          <Col xs={12} md={6} xl={7}>
+            <span className="tagline">Seja bem-vindo ao meu portfólio.</span>
+            <h1>
+              {`Olá, eu sou Pedro e sou `}
+              <span className="wrap">{text}</span>
+            </h1>
+            <p>
+              Bem-vindo ao meu portfólio! Sou um desenvolvedor de software
+              Back-End e Front-End, trabalhando com linguagens como Java,
+              JavaScript, Python e TypeScript, e frameworks como Angular, Zul,
+              React, Node e React Native. Estou focado em criar soluções
+              inovadoras e elegantes.
+            </p>
+            <button onClick={() => window.location.href = "https://wa.me/5571996592762"}>
+              Vamos nos conectar <span>→</span>
+            </button>
           </Col>
-          <Col md={6}>
-            <h2>Entre em contato</h2>
-            <form>
-              <Row>
-                <Col sm={6} className="px-1">
-                  <input
-                    type="text"
-                    value={formDetails.firstName}
-                    placeholder="First Name"
-                    onChange={(e) => onFormUpdate("firstName", e.target.value)}
-                  />
-                </Col>
-                <Col sm={6} className="px-1">
-                  <input
-                    type="text"
-                    value={formDetails.lastName}
-                    placeholder="Last Name"
-                    onChange={(e) => onFormUpdate("lastName", e.target.value)}
-                  />
-                </Col>
-              </Row>
-            </form>
+          <Col xs={12} md={6} xl={5}>
+            <Image src="/assets/img/header-img.svg" alt="Header Img" width={500} height={500} />
           </Col>
         </Row>
       </Container>
@@ -61,4 +68,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact;
+export default Banner;

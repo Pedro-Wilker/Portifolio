@@ -1,3 +1,5 @@
+"use client"; // Adicione isso no topo
+
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Container, Row, Col } from "react-bootstrap";

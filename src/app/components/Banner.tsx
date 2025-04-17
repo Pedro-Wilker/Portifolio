@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+"use client";
+
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/image";
 
@@ -7,20 +9,13 @@ const Banner: React.FC = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(100 - Math.random() * 100);
-  const toRotate = ["Dev Back-End"];
+  const toRotate = useMemo(() => ["Dev Back-End"], []);
   const period = 1700;
 
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-    return () => clearInterval(ticker);
-  }, [text]);
-
-  const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting
+  const tick = useCallback(() => {
+    const i = loopNum % toRotate.length;
+    const fullText = toRotate[i];
+    const updatedText = isDeleting
       ? fullText.substring(0, text.length - 1)
       : fullText.substring(0, text.length + 1);
     setText(updatedText);
@@ -34,7 +29,14 @@ const Banner: React.FC = () => {
       setLoopNum(loopNum + 1);
       setDelta(200);
     }
-  };
+  }, [isDeleting, loopNum, text, toRotate, period]);
+
+  useEffect(() => {
+    const ticker = setInterval(() => {
+      tick();
+    }, delta);
+    return () => clearInterval(ticker);
+  }, [text, delta, tick]);
 
   return (
     <section className="banner" id="home">
