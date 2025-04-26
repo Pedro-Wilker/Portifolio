@@ -1,6 +1,7 @@
 import './App.css';
 import { NavBar } from './components/NavBar';
 import { Banner } from './components/Banner';
+import { AboutMe } from './components/AboutMe';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import FadeInSection from './components/FadeInSection';
@@ -12,6 +13,9 @@ const App: React.FC = () => {
       <NavBar />
       <FadeInSection>
         <Banner />
+      </FadeInSection>
+      <FadeInSection delay={100}>
+        <AboutMe />
       </FadeInSection>
       <FadeInSection delay={200}>
         <Skills />
