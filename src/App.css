@@ -520,6 +520,81 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   letter-spacing: 0.5px;
 }
 
+/************ Experience Css ************/
+.experience {
+  padding: 80px 0;
+  background-color: #121212;
+  position: relative;
+}
+
+.experience .section-title {
+  font-size: 45px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.experience .section-title::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  background: url('data:image/svg+xml,%3Csvg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="25" cy="25" r="25" fill="url(%23paint0_dots)" fill-opacity="0.1"/%3E%3Cdefs%3E%3Cpattern id="paint0_dots" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="translate(0 0)"%3E%3Ccircle cx="2" cy="2" r="2" fill="white"/%3E%3C/pattern%3E%3C/defs%3E%3C/svg%3E') no-repeat;
+}
+
+.experience .experience-title {
+  background: #2A2A2A;
+  border-radius: 10px;
+  padding: 15px 20px;
+  color: #B8B8B8;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.experience .experience-title.active {
+  background: #FF4D6D;
+  color: #fff;
+}
+
+.experience .experience-details {
+  background: #2A2A2A;
+  border-radius: 10px;
+  padding: 20px;
+  color: #B8B8B8;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.experience .experience-details p {
+  margin-bottom: 15px;
+}
+
+.experience .experience-details-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 15px;
+}
+
+.experience .experience-details-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.experience .experience-details-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #FF4D6D;
+  font-size: 20px;
+}
+
 /************ Skills Css ************/
 .skill {
   padding: 0 0 50px 0;
@@ -701,7 +776,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .contact form input, .contact form textarea {
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 第二天255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   color: #fff;
