@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 export const Experience: React.FC = () => {
-  const [selectedExperience, setSelectedExperience] = useState<number | null>(0);
+  const [selectedExperience, setSelectedExperience] = useState<number | null>(null); // Inicialmente, nenhum card está aberto
+  const [selectedEducation, setSelectedEducation] = useState<number | null>(null); // Controle para Education
 
   const experiences = [
     {
@@ -50,14 +51,24 @@ export const Experience: React.FC = () => {
     },
   ];
 
-  const education = {
-    title: 'Centro Universitário Jorge Amado, Salvador —',
-    details: (
-      <>
-        <p><strong>Bacharelado em Ciência da Computação</strong></p>
-        <p>JULHO DE 2020 - DEZEMBRO DE 2024</p>
-      </>
-    ),
+  const educations = [
+    {
+      title: 'Centro Universitário Jorge Amado, Salvador — Bacharelado em Ciência da Computação',
+      details: (
+        <>
+          <p><strong>JULHO DE 2020 - DEZEMBRO DE 2024</strong></p>
+        </>
+      ),
+    },
+    // Você pode adicionar mais formações aqui, se desejar
+  ];
+
+  const toggleExperience = (index: number) => {
+    setSelectedExperience(selectedExperience === index ? null : index); // Fecha se já estiver aberto
+  };
+
+  const toggleEducation = (index: number) => {
+    setSelectedEducation(selectedEducation === index ? null : index); // Fecha se já estiver aberto
   };
 
   return (
@@ -66,29 +77,44 @@ export const Experience: React.FC = () => {
         {/* Work Experience */}
         <h2 className="section-title">Work Experience</h2>
         <Row>
-          {experiences.map((exp, index) => (
-            <Col md={6} key={index} className="mb-4">
-              <div
-                className={`experience-title ${selectedExperience === index ? 'active' : ''}`}
-                onClick={() => setSelectedExperience(index)}
-              >
-                {exp.title}
-              </div>
-              {selectedExperience === index && (
-                <div className="experience-details">
-                  {exp.details}
+          <Col md={12}>
+            {experiences.map((exp, index) => (
+              <div key={index} className="mb-3">
+                <div
+                  className={`experience-title ${selectedExperience === index ? 'active' : ''}`}
+                  onClick={() => toggleExperience(index)}
+                >
+                  {exp.title}
                 </div>
-              )}
-            </Col>
-          ))}
+                {selectedExperience === index && (
+                  <div className="experience-details">
+                    {exp.details}
+                  </div>
+                )}
+              </div>
+            ))}
+          </Col>
         </Row>
 
         {/* Education */}
         <h2 className="section-title">Education</h2>
         <Row>
-          <Col md={6}>
-            <div className="experience-title">{education.title}</div>
-            <div className="experience-details">{education.details}</div>
+          <Col md={12}>
+            {educations.map((edu, index) => (
+              <div key={index} className="mb-3">
+                <div
+                  className={`experience-title ${selectedEducation === index ? 'active' : ''}`}
+                  onClick={() => toggleEducation(index)}
+                >
+                  {edu.title}
+                </div>
+                {selectedEducation === index && (
+                  <div className="experience-details">
+                    {edu.details}
+                  </div>
+                )}
+              </div>
+            ))}
           </Col>
         </Row>
       </Container>

@@ -3,8 +3,8 @@ import { NavBar } from './components/NavBar';
 import { Banner } from './components/Banner';
 import { AboutMe } from './components/AboutMe';
 import { Experience } from './components/Experience';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
+import Services from './components/Services'; // Atualizado
+import { RecentProjects } from './components/RecentProjects';
 import FadeInSection from './components/FadeInSection';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -22,10 +22,10 @@ const App: React.FC = () => {
         <Experience />
       </FadeInSection>
       <FadeInSection delay={300}>
-        <Skills />
+        <Services /> {/* Atualizado */}
       </FadeInSection>
       <FadeInSection delay={400}>
-        <Projects />
+        <RecentProjects />
       </FadeInSection>
     </div>
   );
