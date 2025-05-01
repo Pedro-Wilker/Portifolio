@@ -15,7 +15,7 @@ export const AboutMe: React.FC = () => {
           <Col md={8}>
             <div className="about-me-content">
               <p>
-                Hi, I am Pedro Wilker, a passionate Full Stack Developer with a strong foundation in frontend and backend development, allowing me to create seamless and functional digital experiences. With expertise in web development, I bring a multidisciplinary approach to every project. Currently pursuing a degree in Systems Development, I have gained hands-on experience through multiple projects, refining my skills in user research, interaction design, and full-stack development. My work is driven by creativity, problem-solving, and emerging technologies to craft intuitive and engaging digital solutions.
+              I am a software developer with 3 years of experience, specializing in creating scalable and robust applications. I have expertise in technologies such as Java, TypeScript, Python, Spring Boot, Angular, ZK, Node.js, and React.
               </p>
               <p>Here are a few technologies I’ve been working with recently:</p>
               <ul className="tech-list">
