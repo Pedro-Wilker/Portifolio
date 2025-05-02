@@ -44,7 +44,7 @@ export const NavBar: React.FC = () => {
               Home
             </Nav.Link>
             <Nav.Link
-              href="#skills"
+              href="#experience" // Alterado de #skills para #experience
               className={
                 activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'
               }

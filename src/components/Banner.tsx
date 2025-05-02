@@ -11,7 +11,7 @@ export const Banner: React.FC = () => {
   const [text, setText] = useState<string>('');
   const [delta, setDelta] = useState<number>(100 - Math.random() * 100);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const toRotate = ['Dev FullStack'];
+  const toRotate = ['FullStack Developer'];
   const period = 1700;
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export const Banner: React.FC = () => {
             <h1 className="banner-title">PEDRO WILKER</h1>
             {/* Subtítulo com texto dinâmico */}
             <h2 className="banner-subtitle">
-              Full Stack Developer <span className="wrap">{text}</span>
+             <span className="wrap">{text}</span>
             </h2>
             {/* Ícones de Redes Sociais */}
             <div className="social-icon banner-social">
