@@ -32,7 +32,6 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para enviar o formulário (ex.: API)
     setButtonText('Sending...');
     setTimeout(() => {
       setButtonText('Send');
