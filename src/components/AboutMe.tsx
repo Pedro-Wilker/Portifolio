@@ -21,12 +21,13 @@ export const AboutMe: React.FC = () => {
     <section className="about-me" id="about">
       <Container>
         <h2 className="section-title">About Me</h2>
-        <Row className="align-items-center">
-          <Col md={4} className="mb-4 mb-md-0">
-            <img src={aboutMeImg} alt="About Me" className="about-me-img" />
-          </Col>
-          <Col md={8}>
-            <div className="about-me-content">
+        {/* Card único envolvendo imagem e texto */}
+        <div className="about-me-content">
+          <Row className="align-items-center">
+            <Col md={4} className="mb-4 mb-md-0">
+              <img src={aboutMeImg} alt="About Me" className="about-me-img" />
+            </Col>
+            <Col md={8}>
               <p>
                 I am a software developer with three years of hands-on experience in building efficient, scalable, and robust technology solutions. I specialize in delivering high-performance products aligned with best software engineering practices. With a solid understanding of the entire development lifecycle — from concept to deployment — I have expertise in languages and frameworks such as Java, TypeScript, Python, Spring Boot, Angular, ZK, Node.js, and React.
                 My approach combines deep technical knowledge, strategic business awareness, and a strong focus on user experience, always aiming for excellence in every project I deliver.
@@ -44,9 +45,9 @@ export const AboutMe: React.FC = () => {
               <button className="download-cv-btn" onClick={() => setShowModal(true)}>
                 Download CV
               </button>
-            </div>
-          </Col>
-        </Row>
+            </Col>
+          </Row>
+        </div>
 
         <Row className="stats-row">
           <Col xs={6} md={3} className="text-center">
