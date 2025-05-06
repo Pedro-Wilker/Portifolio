@@ -28,72 +28,406 @@ export const RecentProjects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const projects = [
-    { id: 1, category: "uiux", title: "Mata Mosquito", img: projImg1, tag: "UI/UX" },
-    { id: 2, category: "brand", title: "Camaleão dos Sabores", img: projImg2, tag: "Brand Identity & Marketing" },
-    { id: 3, category: "brand", title: "Gestão Animal", img: projImg3, tag: "Brand Identity & Marketing" },
-    { id: 4, category: "graphic", title: "Business Card Mockup", img: projImg4, tag: "Graphic" },
-    { id: 5, category: "uiux", title: "Snapdeal", img: projImg5, tag: "UI/UX" },
-    { id: 6, category: "graphic", title: "Illustration", img: projImg6, tag: "Graphic" },
-    { id: 7, category: "uiux", title: "HDFC Bank", img: projImg7, tag: "UI/UX" },
-    { id: 8, category: "uiux", title: "Scoot", img: projImg8, tag: "UI/UX" },
-    { id: 9, category: "uiux", title: "Paired Pixel", img: projImg9, tag: "UI/UX" },
-    { id: 10, category: "video", title: "Video Project", img: projImg10, tag: "Video Editing" },
+    // Fullstack Projects
+    { id: 1, category: "fullstack", title: "Camaleão dos Sabores", img: projImg1, tag: "Fullstack" },
+    { id: 2, category: "fullstack", title: "Gestão Animal", img: projImg2, tag: "Fullstack" },
+    { id: 3, category: "fullstack", title: "Tens Oportunidades", img: projImg3, tag: "Fullstack" },
+
+    // Frontend Projects
+    { id: 4, category: "frontend", title: "Camaleão dos Sabores", img: projImg1, tag: "Frontend" },
+    { id: 5, category: "frontend", title: "Gestão Animal", img: projImg2, tag: "Frontend" },
+    { id: 6, category: "frontend", title: "Tens Oportunidades", img: projImg3, tag: "Frontend" },
+    { id: 7, category: "frontend", title: "Finans", img: projImg4, tag: "Frontend" },
+    { id: 8, category: "frontend", title: "TecBlog", img: projImg5, tag: "Frontend" },
+    { id: 9, category: "frontend", title: "Jogo da Memória", img: projImg6, tag: "Frontend" },
+    { id: 10, category: "frontend", title: "Game Mata Mosquito", img: projImg7, tag: "Frontend" },
+    { id: 11, category: "frontend", title: "Mario Game", img: projImg8, tag: "Frontend" },
+    { id: 12, category: "frontend", title: "Pokedex G1", img: projImg9, tag: "Frontend" },
+
+    // Backend Projects
+    { id: 13, category: "backend", title: "Camaleão dos Sabores", img: projImg1, tag: "Backend" },
+    { id: 14, category: "backend", title: "Gestão Animal", img: projImg2, tag: "Backend" },
+    { id: 15, category: "backend", title: "Tens Oportunidades", img: projImg3, tag: "Backend" },
+
+    // Video Editing Projects (vazio por enquanto)
+    // Diversos Projects (vazio por enquanto)
   ];
 
   const filteredProjects = activeTab === "all" ? projects : projects.filter((project) => project.category === activeTab);
 
   const projectDetails: Record<string, { images: string[]; description: JSX.Element }> = {
-    "Mata Mosquito": {
-      images: [
-        projImg1,
-        projImg2,
-        projImg3,
-      ],
+    // Fullstack Projects
+    "Camaleão dos Sabores_fullstack": {
+      images: [projImg1, projImg2, projImg3],
       description: (
         <>
-          <h2>"Mata Mosquito"</h2>
-          <h4>Game developed in pure JavaScript. The game kills the fly, is an interactive game with the objective of killing "mosquitoes" to capture points</h4>
+          <h2>"Camaleão dos Sabores"</h2>
+          <h4>
+            A fullstack project developed for the management of restaurants and hotels, specifically for Bauneario Camaleão das Folhagens, which operates as both a restaurant and a hotel.
+          </h4>
           <hr />
-          <h2>How to start the game?</h2>
-          <h4>It's very simple, follow this step by step:</h4>
-          <h6>Note: As the game is not running on any type of host, it is necessary to use an IDE (ex: VS CODE) to be able to play.</h6>
-          <ol>
-            <li>Copy the repository link and clone it in a local folder or download the repository as .zip</li>
-            <li>Open the repository in an IDE or integrated development environment, example: VS Code</li>
-            <li>Open the index.html page or use the VS Code: Live Server extension</li>
-            <li>Be happy friend!</li>
-          </ol>
-          <h4>There is also an easier way to get started:</h4>
-          <ol>
-            <li>Open git codespace</li>
-            <p style={{ textAlign: "center" }}>
-              <img width="390px" src={projImg2} alt="codespace" />
-              <h6>Select "sturdy basson". You will be redirected to the codespacing page</h6>
-            </p>
-            <li>Right-click on the "index.html" file and select the open with live server option</li>
-            <p style={{ textAlign: "center" }}>
-              <img width="390px" src={projImg3} alt="live server" />
-              <h6>Now Start the game</h6>
-            </p>
-          </ol>
-          <h2>What was used in the project</h2>
-          <h4>Language</h4>
+          <h2>About the Project</h2>
+          <h4>
+            This application streamlines the management of restaurant and hotel operations, including inventory, reservations, and customer management. The frontend was built with NextJS for a seamless user experience, while the backend leverages Node.js for robust API development and data handling.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
           <ul>
-            <li>JavaScript</li>
+            <li>NextJS</li>
           </ul>
-          <h4>Library</h4>
+          <h4>Backend</h4>
           <ul>
-            <li>BootStrap</li>
+            <li>Node.js</li>
           </ul>
           <h4>More</h4>
           <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </>
+      ),
+    },
+    "Gestão Animal_fullstack": {
+      images: [projImg2, projImg3, projImg4],
+      description: (
+        <>
+          <h2>"Gestão Animal"</h2>
+          <h4>
+            A personal fullstack project designed for farm management, catering to both large and small-scale producers. Currently in development.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            Gestão Animal aims to simplify farm management by providing tools for tracking livestock, managing resources, and monitoring production. The frontend is built with NextJS, ensuring a modern and responsive interface, while the backend uses Node.js for efficient data processing and storage.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
+          <ul>
+            <li>NextJS</li>
+          </ul>
+          <h4>Backend</h4>
+          <ul>
+            <li>Node.js</li>
+          </ul>
+          <h4>More</h4>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </>
+      ),
+    },
+    "Tens Oportunidades_fullstack": {
+      images: [projImg3, projImg4, projImg5],
+      description: (
+        <>
+          <h2>"Tens Oportunidades"</h2>
+          <h4>
+            A fullstack project developed in collaboration with the councilwoman of Tapiramutá, Manuela, to help service providers and clients in the region connect through a platform that allows free publication of services.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            Tens Oportunidades empowers local businesses and service providers by offering a platform to advertise their services for free, increasing their visibility and client reach. The frontend was developed with NextJS for a smooth user experience, and the backend uses Node.js to handle data and user interactions. Visit the site at: <a href="http://tensoportunidades.com.br/" target="_blank" rel="noopener noreferrer">tensoportunidades.com.br</a>.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
+          <ul>
+            <li>NextJS</li>
+          </ul>
+          <h4>Backend</h4>
+          <ul>
+            <li>Node.js</li>
+          </ul>
+          <h4>More</h4>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </>
+      ),
+    },
+
+    // Frontend Projects
+    "Camaleão dos Sabores_frontend": {
+      images: [projImg1, projImg2, projImg3],
+      description: (
+        <>
+          <h2>"Camaleão dos Sabores"</h2>
+          <h4>
+            A frontend project for the management of restaurants and hotels, specifically for Bauneario Camaleão das Folhagens, which operates as both a restaurant and a hotel.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            This frontend application provides an intuitive interface for managing restaurant and hotel operations, focusing on user experience and responsiveness. It was built with NextJS to ensure a fast and modern interface.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
+          <ul>
+            <li>NextJS</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </>
+      ),
+    },
+    "Gestão Animal_frontend": {
+      images: [projImg2, projImg3, projImg4],
+      description: (
+        <>
+          <h2>"Gestão Animal"</h2>
+          <h4>
+            A personal frontend project designed for farm management, catering to both large and small-scale producers. Currently in development.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            Gestão Animal provides a user-friendly interface for farm management, allowing users to track livestock and manage resources efficiently. The frontend was developed using NextJS to ensure a modern and responsive design.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
+          <ul>
+            <li>NextJS</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </>
+      ),
+    },
+    "Tens Oportunidades_frontend": {
+      images: [projImg3, projImg4, projImg5],
+      description: (
+        <>
+          <h2>"Tens Oportunidades"</h2>
+          <h4>
+            A frontend project developed in collaboration with the councilwoman of Tapiramutá, Manuela, to help service providers and clients in the region connect through a platform that allows free publication of services.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            Tens Oportunidades offers a clean and intuitive frontend for users to browse and publish services, enhancing local business visibility. The interface was built with NextJS for optimal performance and user experience. Visit the site at: <a href="http://tensoportunidades.com.br/" target="_blank" rel="noopener noreferrer">tensoportunidades.com.br</a>.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
+          <ul>
+            <li>NextJS</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </>
+      ),
+    },
+    "Finans": {
+      images: [projImg4, projImg5, projImg6],
+      description: (
+        <>
+          <h2>"Finans"</h2>
+          <h4>
+            A sample landing page created as a template for future digital product sales landing pages.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            Finans serves as an example of a clean and effective landing page for digital products, focusing on conversion and user engagement. It was developed using vanilla JavaScript, HTML, and CSS to keep it lightweight and accessible. Check it out at: <a href="https://pedro-wilker.github.io/Finans/" target="_blank" rel="noopener noreferrer">pedro-wilker.github.io/Finans</a>.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
+          <ul>
+            <li>JavaScript</li>
             <li>HTML</li>
             <li>CSS</li>
           </ul>
         </>
       ),
     },
-    // Adicione mais projetos conforme necessário
+    "TecBlog": {
+      images: [projImg5, projImg6, projImg7],
+      description: (
+        <>
+          <h2>"TecBlog"</h2>
+          <h4>
+            A sample blog site created to demonstrate how blogs can be built for clients, news sites, or personal projects.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            TecBlog showcases a simple yet effective blog layout, ideal for news sites or personal blogs. It was developed using vanilla JavaScript, HTML, and CSS to ensure flexibility and ease of customization. Check it out at: <a href="https://pedro-wilker.github.io/tecblog/" target="_blank" rel="noopener noreferrer">pedro-wilker.github.io/tecblog</a>.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
+          <ul>
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </>
+      ),
+    },
+    "Jogo da Memória": {
+      images: [projImg6, projImg7, projImg8],
+      description: (
+        <>
+          <h2>"Jogo da Memória"</h2>
+          <h4>
+            An interactive memory game created for training and learning frontend development techniques.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            Jogo da Memória is a fun and interactive game designed to test memory skills while serving as a learning project for frontend development. It was built using vanilla JavaScript, HTML, and CSS to practice DOM manipulation and event handling. Play it at: <a href="https://pedro-wilker.github.io/Jogo-da-Memoria/" target="_blank" rel="noopener noreferrer">pedro-wilker.github.io/Jogo-da-Memoria</a>.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
+          <ul>
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </>
+      ),
+    },
+    "Game Mata Mosquito": {
+      images: [projImg7, projImg8, projImg9],
+      description: (
+        <>
+          <h2>"Game Mata Mosquito"</h2>
+          <h4>
+            An interactive game created for training and learning frontend development techniques.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            Game Mata Mosquito challenges players to "kill" mosquitoes to earn points, providing a fun way to practice frontend skills like animations and game logic. It was developed using vanilla JavaScript, HTML, and CSS. Play it at: <a href="https://pedro-wilker.github.io/Jogo-da-Memoria/" target="_blank" rel="noopener noreferrer">pedro-wilker.github.io/Jogo-da-Memoria</a>.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
+          <ul>
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>BootStrap</li>
+          </ul>
+        </>
+      ),
+    },
+    "Mario Game": {
+      images: [projImg8, projImg9, projImg10],
+      description: (
+        <>
+          <h2>"Mario Game"</h2>
+          <h4>
+            An interactive game created for training and learning frontend development techniques, replicating a classic childhood game.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            Mario Game is a homage to classic platformer games, built as a learning project to explore game development concepts like physics and collision detection in the browser. It was developed using vanilla JavaScript, HTML, and CSS. Play it at: <a href="https://pedro-wilker.github.io/Jogo-da-Memoria/" target="_blank" rel="noopener noreferrer">pedro-wilker.github.io/Jogo-da-Memoria</a>.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
+          <ul>
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </>
+      ),
+    },
+    "Pokedex G1": {
+      images: [projImg9, projImg10, projImg1],
+      description: (
+        <>
+          <h2>"Pokedex G1"</h2>
+          <h4>
+            An interactive project created for training and learning frontend development techniques, inspired by a childhood favorite.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            Pokedex G1 replicates the experience of a Pokémon Pokedex, displaying information about Pokémon in an interactive format. It was built to practice API integration and UI design, using vanilla JavaScript, HTML, and CSS. Check it out at: <a href="https://pedro-wilker.github.io/Jogo-da-Memoria/" target="_blank" rel="noopener noreferrer">pedro-wilker.github.io/Jogo-da-Memoria</a>.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Frontend</h4>
+          <ul>
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </>
+      ),
+    },
+
+    // Backend Projects
+    "Camaleão dos Sabores_backend": {
+      images: [projImg1, projImg2, projImg3],
+      description: (
+        <>
+          <h2>"Camaleão dos Sabores"</h2>
+          <h4>
+            A backend project for the management of restaurants and hotels, specifically for Bauneario Camaleão das Folhagens, which operates as both a restaurant and a hotel.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            This backend powers the Camaleão dos Sabores application, handling data for inventory, reservations, and customer management. It was developed with Node.js to ensure efficient data processing and API performance.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Backend</h4>
+          <ul>
+            <li>Node.js</li>
+          </ul>
+        </>
+      ),
+    },
+    "Gestão Animal_backend": {
+      images: [projImg2, projImg3, projImg4],
+      description: (
+        <>
+          <h2>"Gestão Animal"</h2>
+          <h4>
+            A personal backend project designed for farm management, catering to both large and small-scale producers. Currently in development.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            The backend for Gestão Animal handles data related to livestock tracking, resource management, and production monitoring. It was built with Node.js for scalability and performance.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Backend</h4>
+          <ul>
+            <li>Node.js</li>
+          </ul>
+        </>
+      ),
+    },
+    "Tens Oportunidades_backend": {
+      images: [projImg3, projImg4, projImg5],
+      description: (
+        <>
+          <h2>"Tens Oportunidades"</h2>
+          <h4>
+            A backend project developed in collaboration with the councilwoman of Tapiramutá, Manuela, to support a platform that connects service providers and clients in the region.
+          </h4>
+          <hr />
+          <h2>About the Project</h2>
+          <h4>
+            The backend for Tens Oportunidades manages user data, service listings, and interactions on the platform. It was developed with Node.js to ensure efficient data handling and API responses. Visit the site at: <a href="http://tensoportunidades.com.br/" target="_blank" rel="noopener noreferrer">tensoportunidades.com.br</a>.
+          </h4>
+          <h2>Technologies Used</h2>
+          <h4>Backend</h4>
+          <ul>
+            <li>Node.js</li>
+          </ul>
+        </>
+      ),
+    },
   };
 
   const handleProjectClick = (project: Project) => {
@@ -112,43 +446,49 @@ export const RecentProjects: React.FC = () => {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="uiux" active={activeTab === "uiux"} onClick={() => setActiveTab("uiux")}>
-              UI/UX
+            <Nav.Link eventKey="fullstack" active={activeTab === "fullstack"} onClick={() => setActiveTab("fullstack")}>
+              Fullstack
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="graphic" active={activeTab === "graphic"} onClick={() => setActiveTab("graphic")}>
-              Graphic
+            <Nav.Link eventKey="frontend" active={activeTab === "frontend"} onClick={() => setActiveTab("frontend")}>
+              Frontend
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="brand" active={activeTab === "brand"} onClick={() => setActiveTab("brand")}>
-              Brand Identity & Marketing
+            <Nav.Link eventKey="backend" active={activeTab === "backend"} onClick={() => setActiveTab("backend")}>
+              Backend
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="3dmodel" active={activeTab === "3dmodel"} onClick={() => setActiveTab("3dmodel")}>
-              3D Modelling
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="video" active={activeTab === "video"} onClick={() => setActiveTab("video")}>
+            <Nav.Link eventKey="videoediting" active={activeTab === "videoediting"} onClick={() => setActiveTab("videoediting")}>
               Video Editing
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="diversos" active={activeTab === "diversos"} onClick={() => setActiveTab("diversos")}>
+              Diversos
             </Nav.Link>
           </Nav.Item>
         </Nav>
         <Row>
-          {filteredProjects.map((project) => (
-            <Col md={4} sm={6} key={project.id} className="mb-4">
-              <div className="project-card" onClick={() => handleProjectClick(project)}>
-                <div className="project-img-wrapper">
-                  <img src={project.img} alt={project.title} className="project-img" />
-                  <span className="project-tag">{project.tag}</span>
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project) => (
+              <Col md={4} sm={6} key={project.id} className="mb-4">
+                <div className="project-card" onClick={() => handleProjectClick(project)}>
+                  <div className="project-img-wrapper">
+                    <img src={project.img} alt={project.title} className="project-img" />
+                    <span className="project-tag">{project.tag}</span>
+                  </div>
+                  <h4 className="project-title">{project.title}</h4>
                 </div>
-                <h4 className="project-title">{project.title}</h4>
-              </div>
+              </Col>
+            ))
+          ) : (
+            <Col className="text-center">
+              <h4>Projetos iniciados ou em desenvolvimento no momento 🤖🔧</h4>
             </Col>
-          ))}
+          )}
         </Row>
       </Container>
       <img className="background-image-right" src={colorSharp2} alt="Background" />
@@ -161,11 +501,13 @@ export const RecentProjects: React.FC = () => {
         <Modal.Body>
           <div className="modal-images">
             {selectedProject &&
-              projectDetails[selectedProject.title]?.images.map((img, index) => (
+              projectDetails[`${selectedProject.title}_${selectedProject.category}`]?.images.map((img, index) => (
                 <img key={index} src={img} alt={`Project ${index}`} className="modal-image" />
               ))}
           </div>
-          <div className="modal-description">{selectedProject && projectDetails[selectedProject.title]?.description}</div>
+          <div className="modal-description">
+            {selectedProject && projectDetails[`${selectedProject.title}_${selectedProject.category}`]?.description}
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowModal(false)}>
