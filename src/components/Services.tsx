@@ -1,6 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import colorSharp from '../assets/img/color-sharp.png';
-import { FaLaptopCode, FaPaintBrush, FaTag, FaCode, FaCube, FaVideo } from 'react-icons/fa';
+import { FaLaptopCode, FaPaintBrush, FaCode, FaVideo } from 'react-icons/fa';
 import { ReactNode } from 'react';
 
 // Interface para os serviços
@@ -23,19 +23,9 @@ export const Services: React.FC = () => {
       icon: <FaPaintBrush />,
     },
     {
-      title: 'Brand Identity & Marketing',
-      description: 'Building a strong brand presence through cohesive design, messaging, and visibility marketing strategy engagement across digital platforms.',
-      icon: <FaTag />,
-    },
-    {
       title: 'Full-Stack Development',
       description: 'Designing and developing complete web solutions, from interactive user interfaces to robust backend systems, ensuring seamless performance.',
       icon: <FaCode />,
-    },
-    {
-      title: '3D Modelling',
-      description: 'Designing detailed 3D models for animation, games, and product visualization.',
-      icon: <FaCube />,
     },
     {
       title: 'Video Editing',
@@ -50,7 +40,7 @@ export const Services: React.FC = () => {
         <h2 className="section-title">Services</h2>
         <Row>
           {services.map((service, index) => (
-            <Col md={4} key={index} className="mb-4">
+            <Col md={6} key={index} className="mb-4">
               <div className="service-card">
                 <div className="service-icon">{service.icon}</div>
                 <h4 className="service-title">{service.title}</h4>

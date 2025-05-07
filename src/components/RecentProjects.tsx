@@ -48,12 +48,39 @@ export const RecentProjects: React.FC = () => {
     { id: 13, category: "backend", title: "Camaleão dos Sabores", img: projImg1, tag: "Backend" },
     { id: 14, category: "backend", title: "Gestão Animal", img: projImg2, tag: "Backend" },
     { id: 15, category: "backend", title: "Tens Oportunidades", img: projImg3, tag: "Backend" },
-
-    // Video Editing Projects (vazio por enquanto)
-    // Diversos Projects (vazio por enquanto)
   ];
 
-  const filteredProjects = activeTab === "all" ? projects : projects.filter((project) => project.category === activeTab);
+  // Função para filtrar projetos e evitar duplicatas na aba "All", priorizando "fullstack"
+  const getFilteredProjects = () => {
+    if (activeTab !== "all") {
+      // Para outras abas, apenas filtramos por categoria
+      return projects.filter((project) => project.category === activeTab);
+    } else {
+      // Para a aba "All", evitamos duplicatas e priorizamos "fullstack"
+      const seenTitles = new Set<string>();
+      const filtered: Project[] = [];
+
+      // Primeiro, adicionamos projetos da categoria "fullstack"
+      projects.forEach((project) => {
+        if (project.category === "fullstack" && !seenTitles.has(project.title)) {
+          filtered.push(project);
+          seenTitles.add(project.title);
+        }
+      });
+
+      // Depois, adicionamos projetos de outras categorias, apenas se o título ainda não foi adicionado
+      projects.forEach((project) => {
+        if (project.category !== "fullstack" && !seenTitles.has(project.title)) {
+          filtered.push(project);
+          seenTitles.add(project.title);
+        }
+      });
+
+      return filtered;
+    }
+  };
+
+  const filteredProjects = getFilteredProjects();
 
   const projectDetails: Record<string, { images: string[]; description: JSX.Element }> = {
     // Fullstack Projects
