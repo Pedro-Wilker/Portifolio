@@ -814,14 +814,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #B8B8B8;
   max-height: 80vh; /* Altura máxima com rolagem */
   overflow-y: auto;
+  position: relative; /* Necessário para posicionamento absoluto do botão */
 }
 
 /* Estilização do cabeçalho da modal */
 .recent-projects .modal-header-custom {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centraliza o título */
   align-items: center;
   margin-bottom: 30px;
+  position: relative; /* Para posicionar o botão de fechar */
 }
 
 .recent-projects .modal-title-custom {
@@ -829,17 +831,30 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 32px;
   font-weight: 700;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 .recent-projects .modal-close-btn {
-  font-size: 30px;
-  color: #B8B8B8;
-  transition: color 0.3s ease;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 36px; /* Aumentei o tamanho para maior visibilidade */
+  color: #fff; /* Cor branca para maior contraste */
+  background: #FF4D6D; /* Fundo destacado */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Formato circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.3s ease;
   text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
 }
 
 .recent-projects .modal-close-btn:hover {
-  color: #FF4D6D;
+  background: #E63956; /* Cor mais escura no hover */
+  transform: scale(1.1); /* Efeito de escala no hover */
 }
 
 /* Wrapper para conteúdo da modal */
@@ -970,6 +985,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
   .recent-projects .modal-image-centered {
     max-width: 300px;
+  }
+
+  .recent-projects .modal-close-btn {
+    font-size: 30px;
+    width: 35px;
+    height: 35px;
   }
 }
 
