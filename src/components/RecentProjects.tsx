@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Row, Col, Nav, Modal, Button } from "react-bootstrap";
+import { Container, Row, Col, Nav, Button } from "react-bootstrap";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import projImg1 from "../assets/img/project-img.png";
 import projImg2 from "../assets/img/project-img(2).png";
@@ -15,7 +15,7 @@ import { JSX } from "react/jsx-runtime";
 
 export const RecentProjects: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("all");
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   interface Project {
     id: number;
@@ -24,8 +24,6 @@ export const RecentProjects: React.FC = () => {
     img: string;
     tag: string;
   }
-
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const projects = [
     // Fullstack Projects
@@ -585,7 +583,10 @@ export const RecentProjects: React.FC = () => {
 
   const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
-    setShowModal(true);
+  };
+
+  const handleBackClick = () => {
+    setSelectedProject(null);
   };
 
   return (
@@ -624,8 +625,33 @@ export const RecentProjects: React.FC = () => {
             </Nav.Link>
           </Nav.Item>
         </Nav>
+
         <Row>
-          {filteredProjects.length > 0 ? (
+          {selectedProject ? (
+            <Col xs={12}>
+              <div className="expanded-project-card">
+                <div className="expanded-header">
+                  <h2 className="expanded-title">{selectedProject.title}</h2>
+                  <Button
+                    variant="link"
+                    className="expanded-close-btn"
+                    onClick={handleBackClick}
+                  >
+                    <span>×</span>
+                  </Button>
+                </div>
+                <div className="expanded-content">
+                  {projectDetails[`${selectedProject.title}_${selectedProject.category}`]?.description}
+                </div>
+                <Button
+                  className="expanded-back-btn"
+                  onClick={handleBackClick}
+                >
+                  Back to Projects
+                </Button>
+              </div>
+            </Col>
+          ) : filteredProjects.length > 0 ? (
             filteredProjects.map((project) => (
               <Col md={4} sm={6} key={project.id} className="mb-4">
                 <div className="project-card" onClick={() => handleProjectClick(project)}>
@@ -645,38 +671,6 @@ export const RecentProjects: React.FC = () => {
         </Row>
       </Container>
       <img className="background-image-right" src={colorSharp2} alt="Background" />
-
-      {/* Modal */}
-      <Modal
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        size="lg"
-        centered
-        className="project-modal"
-        dialogClassName="modal-80w"
-        backdrop="static"
-        animation={true}
-      >
-        <Modal.Body className="modal-body-custom">
-          {selectedProject && (
-            <>
-              <div className="modal-header-custom">
-                <h2 className="modal-title-custom">{selectedProject.title}</h2>
-                <Button
-                  variant="link"
-                  className="modal-close-btn"
-                  onClick={() => setShowModal(false)}
-                >
-                  <span>×</span>
-                </Button>
-              </div>
-              <div className="modal-content-wrapper">
-                {projectDetails[`${selectedProject.title}_${selectedProject.category}`]?.description}
-              </div>
-            </>
-          )}
-        </Modal.Body>
-      </Modal>
     </section>
   );
 };

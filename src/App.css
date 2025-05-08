@@ -69,7 +69,7 @@ input:focus, textarea:focus, select:focus {
   outline: none;
 }
 
-@media (min-width:1700px) {
+@media (min-width: 1700px) {
   main .container {
     max-width: 100%;
     padding: 0 150px;
@@ -780,53 +780,37 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   z-index: -4;
 }
 
-/* Modal Styles - Novo design com imagens centralizadas e descrição organizada */
-.recent-projects .modal-80w {
-  max-width: 80%; /* Modal ocupa 80% da largura da tela */
-  margin: 0 auto;
+/* Estilos para o card expansível */
+.recent-projects .expanded-project-card {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 40px;
+  color: #B8B8B8;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  animation: expandCard 0.5s ease-in-out;
+  position: relative;
 }
 
-.recent-projects .project-modal {
-  animation: slideIn 0.5s ease-in-out;
-}
-
-@keyframes slideIn {
+@keyframes expandCard {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: scale(0.95);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
 }
 
-.recent-projects .modal-content {
-  background: #1a1a1a; /* Fundo escuro */
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  overflow: hidden;
-}
-
-.recent-projects .modal-body-custom {
-  padding: 40px;
-  color: #B8B8B8;
-  max-height: 80vh; /* Altura máxima com rolagem */
-  overflow-y: auto;
-  position: relative; /* Necessário para posicionamento absoluto do botão */
-}
-
-/* Estilização do cabeçalho da modal */
-.recent-projects .modal-header-custom {
+.recent-projects .expanded-header {
   display: flex;
-  justify-content: center; /* Centraliza o título */
+  justify-content: center;
   align-items: center;
   margin-bottom: 30px;
-  position: relative; /* Para posicionar o botão de fechar */
+  position: relative;
 }
 
-.recent-projects .modal-title-custom {
+.recent-projects .expanded-title {
   color: #fff;
   font-size: 32px;
   font-weight: 700;
@@ -834,31 +818,30 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   text-align: center;
 }
 
-.recent-projects .modal-close-btn {
+.recent-projects .expanded-close-btn {
   position: absolute;
   right: 0;
   top: 0;
-  font-size: 36px; /* Aumentei o tamanho para maior visibilidade */
-  color: #fff; /* Cor branca para maior contraste */
-  background: #FF4D6D; /* Fundo destacado */
+  font-size: 36px;
+  color: #fff;
+  background: #FF4D6D;
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* Formato circular */
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background 0.3s ease, transform 0.3s ease;
   text-decoration: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.recent-projects .modal-close-btn:hover {
-  background: #E63956; /* Cor mais escura no hover */
-  transform: scale(1.1); /* Efeito de escala no hover */
+.recent-projects .expanded-close-btn:hover {
+  background: #E63956;
+  transform: scale(1.1);
 }
 
-/* Wrapper para conteúdo da modal */
-.recent-projects .modal-content-wrapper {
+.recent-projects .expanded-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -872,7 +855,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .recent-projects .modal-image-centered {
   width: 100%;
-  max-width: 390px; /* Tamanho fixo como no exemplo */
+  max-width: 390px;
   height: auto;
   border-radius: 8px;
   border: 2px solid #FF4D6D;
@@ -892,7 +875,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 /* Estilização dos textos e seções */
-.recent-projects .modal-content-wrapper h2 {
+.recent-projects .expanded-content h2 {
   color: #fff;
   font-size: 24px;
   font-weight: 600;
@@ -900,7 +883,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   text-align: center;
 }
 
-.recent-projects .modal-content-wrapper h4 {
+.recent-projects .expanded-content h4 {
   color: #D3D3D3;
   font-size: 16px;
   font-weight: 400;
@@ -908,42 +891,42 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-bottom: 15px;
 }
 
-.recent-projects .modal-content-wrapper h6 {
+.recent-projects .expanded-content h6 {
   color: #B8B8B8;
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 15px;
 }
 
-.recent-projects .modal-content-wrapper ul,
-.recent-projects .modal-content-wrapper ol {
+.recent-projects .expanded-content ul,
+.recent-projects .expanded-content ol {
   padding-left: 20px;
   margin-bottom: 15px;
   color: #D3D3D3;
 }
 
-.recent-projects .modal-content-wrapper li {
+.recent-projects .expanded-content li {
   margin-bottom: 10px;
   line-height: 1.6;
 }
 
-.recent-projects .modal-content-wrapper a {
+.recent-projects .expanded-content a {
   color: #FF4D6D;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.recent-projects .modal-content-wrapper a:hover {
+.recent-projects .expanded-content a:hover {
   color: #E63956;
   text-decoration: underline;
 }
 
-.recent-projects .modal-content-wrapper hr {
+.recent-projects .expanded-content hr {
   border-color: #444;
   margin: 25px 0;
 }
 
-.recent-projects .modal-content-wrapper code {
+.recent-projects .expanded-content code {
   background: #2A2A2A;
   color: #FF4D6D;
   padding: 2px 6px;
@@ -951,17 +934,30 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 14px;
 }
 
-/* Responsividade */
-@media (max-width: 991px) {
-  .recent-projects .modal-80w {
-    max-width: 90%;
-  }
+.recent-projects .expanded-back-btn {
+  font-weight: 700;
+  color: #fff;
+  background-color: #FF4D6D;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 25px;
+  border: none;
+  transition: background 0.3s ease-in-out;
+  display: block;
+  margin: 20px auto 0;
+}
 
-  .recent-projects .modal-body-custom {
+.recent-projects .expanded-back-btn:hover {
+  background-color: #E63956;
+}
+
+/* Responsividade para o card expansível */
+@media (max-width: 991px) {
+  .recent-projects .expanded-project-card {
     padding: 30px;
   }
 
-  .recent-projects .modal-title-custom {
+  .recent-projects .expanded-title {
     font-size: 28px;
   }
 
@@ -971,15 +967,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 @media (max-width: 767px) {
-  .recent-projects .modal-80w {
-    max-width: 95%;
-  }
-
-  .recent-projects .modal-body-custom {
+  .recent-projects .expanded-project-card {
     padding: 20px;
   }
 
-  .recent-projects .modal-title-custom {
+  .recent-projects .expanded-title {
     font-size: 24px;
   }
 
@@ -987,7 +979,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     max-width: 300px;
   }
 
-  .recent-projects .modal-close-btn {
+  .recent-projects .expanded-close-btn {
     font-size: 30px;
     width: 35px;
     height: 35px;
